@@ -23,7 +23,7 @@ namespace CloudBooks.API.Presentation.Controllers
             {
                 var pdfBytes = await _reportService.generateBufferReport();
 
-                return File(pdfBytes, "application/pdf", "report.pdf");
+                return Ok(File(pdfBytes, "application/pdf", "report.pdf"));
             }
             catch (Exception ex)
             {

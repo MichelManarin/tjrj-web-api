@@ -98,6 +98,9 @@ namespace CloudBooks.API.Presentation.Controllers
             {
                 var livro = new Livro(livroView.Codl, livroView.Titulo, livroView.Editora, livroView.Edicao, livroView.AnoPublicacao);
 
+                var livroAutores = livroView.AutoresIds.Select(id => new Livro_Autor { Livro_Codl = livroView.Codl, Autor_CodAu = id }).ToList();
+                var livroAssuntos = livroView.AssuntosIds.Select(id => new Livro_Assunto { Livro_Codl = livroView.Codl, Assunto_CodAs = id }).ToList();
+
                 await _livroService.UpdateLivroAsync(livro);
 
                 return Ok(new { message = "Livro atualizado com sucesso" });

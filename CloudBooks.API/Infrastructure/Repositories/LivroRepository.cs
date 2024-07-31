@@ -53,6 +53,7 @@ namespace CloudBooks.API.Infrastructure.Repositories
             return await _context.Livros
                 .Include(l => l.Livro_Autores)
                 .Include(l => l.Livro_Assuntos)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(l => l.Codl == livroId);
         }
         public async Task<IList<Autor>> GetAtoresAsync(int livroId)
