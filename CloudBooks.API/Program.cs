@@ -51,9 +51,11 @@ void ConfigureServices(IServiceCollection services)
     });
 
     services.AddTransient<IAssuntoRepository, AssuntoRepository>();
+    services.AddTransient<IReportRepository, ReportRepository>();
     services.AddTransient<IAutorRepository, AutorRepository>(); 
     services.AddTransient<ILivroRepository, LivroRepository>();
     services.AddTransient<IAutorService, AutorService>();
     services.AddTransient<IAssuntoService, AssuntoService>();
     services.AddTransient<ILivroService, LivroService>();
+    services.AddTransient<IReportService, ReportService>();
 }

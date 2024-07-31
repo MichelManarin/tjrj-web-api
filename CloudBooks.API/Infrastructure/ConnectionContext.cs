@@ -18,7 +18,7 @@ public class ConnectionContext : DbContext
     public DbSet<Assunto> Assuntos { get; set; }
     public DbSet<Livro_Autor> Livro_Autores { get; set; }
     public DbSet<Livro_Assunto> Livro_Assuntos { get; set; }
-    public DbSet<LivrosPorAutorViewModel> LivrosPorAutor { get; set; }
+    public DbSet<LivrosPorAutorViewModel> LivrosPorAutorView { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
