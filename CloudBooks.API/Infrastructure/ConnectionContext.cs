@@ -1,0 +1,75 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using System.Reflection.Emit;
+
+public class ConnectionContext : DbContext
+{
+    private readonly IConfiguration _configuration;
+
+    public ConnectionContext(DbContextOptions<ConnectionContext> options, IConfiguration configuration)
+            : base(options)
+    {
+        _configuration = configuration;
+    }
+
+    public DbSet<Livro> Livros { get; set; }
+    public DbSet<Autor> Autores { get; set; }
+    public DbSet<Assunto> Assuntos { get; set; }
+    public DbSet<Livro_Autor> Livro_Autores { get; set; }
+    public DbSet<Livro_Assunto> Livro_Assuntos { get; set; }
+    public DbSet<LivrosPorAutorViewModel> LivrosPorAutor { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Livro>()
+            .HasKey(l => l.Codl);
+
+        modelBuilder.Entity<Autor>()
+            .HasKey(a => a.CodAu);
+
+        modelBuilder.Entity<Assunto>()
+            .HasKey(a => a.CodAs);
+
+        modelBuilder.Entity<Livro_Autor>()
+            .HasKey(la => new { la.Livro_Codl, la.Autor_CodAu });
+
+        modelBuilder.Entity<Livro_Autor>()
+            .HasOne(la => la.Livro)
+            .WithMany(l => l.Livro_Autores)
+            .HasForeignKey(la => la.Livro_Codl);
+
+        modelBuilder.Entity<Livro_Autor>()
+            .HasOne(la => la.Autor)
+            .WithMany(a => a.Livro_Autores)
+            .HasForeignKey(la => la.Autor_CodAu);
+
+        modelBuilder.Entity<Livro_Assunto>()
+            .HasKey(la => new { la.Livro_Codl, la.Assunto_CodAs });
+
+        modelBuilder.Entity<Livro_Assunto>()
+            .HasOne(la => la.Livro)
+            .WithMany(l => l.Livro_Assuntos)
+            .HasForeignKey(la => la.Livro_Codl);
+
+        modelBuilder.Entity<Livro_Assunto>()
+            .HasOne(la => la.Assunto)
+            .WithMany(a => a.Livro_Assuntos)
+            .HasForeignKey(la => la.Assunto_CodAs);
+
+        modelBuilder.Entity<LivrosPorAutorViewModel>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToView("LivrosPorAutorView");
+        });
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+    }
+}

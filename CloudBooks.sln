@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudBooks.API", "CloudBooks.API\CloudBooks.API.csproj", "{EB66D678-3365-4C3C-95E6-C08CD6ACFE80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudBooks.UnitTests", "CloudBooks.UnitTests\CloudBooks.UnitTests.csproj", "{A0D66DF7-7670-4820-B816-48B157F170B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB66D678-3365-4C3C-95E6-C08CD6ACFE80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB66D678-3365-4C3C-95E6-C08CD6ACFE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB66D678-3365-4C3C-95E6-C08CD6ACFE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB66D678-3365-4C3C-95E6-C08CD6ACFE80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0D66DF7-7670-4820-B816-48B157F170B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0D66DF7-7670-4820-B816-48B157F170B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0D66DF7-7670-4820-B816-48B157F170B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0D66DF7-7670-4820-B816-48B157F170B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
