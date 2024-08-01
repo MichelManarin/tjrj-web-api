@@ -32,9 +32,15 @@ namespace CloudBooks.API.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public Task DeleteLink(Livro livro)
+        public async Task DeleteLink(Livro livro)
         {
-            throw new NotImplementedException();
+            var livroAssuntos = _context.Livro_Assuntos.Where(la => la.Livro_Codl == livro.Codl);
+            _context.Livro_Assuntos.RemoveRange(livroAssuntos);
+
+            var livroAutores = _context.Livro_Autores.Where(la => la.Livro_Codl == livro.Codl);
+            _context.Livro_Autores.RemoveRange(livroAutores);
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Livro>> GetAllAsync()

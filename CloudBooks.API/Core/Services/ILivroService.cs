@@ -8,6 +8,6 @@
         Task UpdateLivroAsync(Livro livro);
         Task<Livro?> GetLivroByIdAsync(int id);
         Task AddLivroAssuntoAndLivroAutor(List<Livro_Assunto> livroAssunto, List<Livro_Autor> livroAutor);
-        //Task<Livro?> RemoveLivroAssuntoAndLivroAutor(int livroId);
+        Task<Livro?> RemoveLivroAssuntoAndLivroAutor(int livroId);
     }
 }

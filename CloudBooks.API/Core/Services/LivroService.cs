@@ -33,9 +33,11 @@ namespace CloudBooks.API.Core.Services
             return await _livroRepository.GetAsync(id);
         }
 
-        public Task<Livro?> RemoveLivroAssuntoAndLivroAutor(int livroId)
+        public async Task<Livro?> RemoveLivroAssuntoAndLivroAutor(int livroId)
         {
-            throw new NotImplementedException();
+            var livro = await _livroRepository.GetAsync(livroId);
+            await _livroRepository.DeleteLink(livro);
+            return livro;
         }
 
         public async Task RemoveLivroAsync(int id)
