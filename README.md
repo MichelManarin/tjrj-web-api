@@ -18,3 +18,6 @@ Para geração de relatórios, utilizei o iTextSharp, que, embora não seja um g
 O projeto CloudBook.UnitTests referencia a API e realiza testes mockados nos controllers e serviços, garantindo a segurança para futuras implementações. Focalizei os testes nos controllers de assuntos, autores e livros, totalizando 27 testes unitários.
 
 Essa abordagem garante uma estrutura bem organizada, facilitando a manutenção, a expansão do projeto e a garantia de qualidade através dos testes automatizados.
+
+![image](https://github.com/user-attachments/assets/f781a8ea-3c47-437e-a340-e0dfa3a121a3)
+![image](https://github.com/user-attachments/assets/c720bae2-2f88-46dc-b554-b208f0123c75)
