@@ -76,14 +76,14 @@ namespace CloudBooks.API.Presentation.Controllers
         }
 
         [HttpPatch(Name = "UpdateAtor")]
-        public async Task<IActionResult> Update(AutorViewModel assuntoViewModel)
+        public async Task<IActionResult> Update(AutorViewModel autorViewModel)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                var autor = new Autor(assuntoViewModel.CodAu, assuntoViewModel.Nome);
+                var autor = new Autor(autorViewModel.CodAu, autorViewModel.Nome);
 
                 await _autorService.UpdateAutorAsync(autor);
 

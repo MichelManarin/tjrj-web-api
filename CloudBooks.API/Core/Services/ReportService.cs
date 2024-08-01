@@ -37,6 +37,7 @@ namespace CloudBooks.API.Core.Services
                     table.AddCell(new Phrase("Autor", boldFont));
                     table.AddCell(new Phrase("Livro", boldFont));
                     table.AddCell(new Phrase("Editora", boldFont));
+                    table.AddCell(new Phrase("Edição", boldFont));
                     table.AddCell(new Phrase("Ano de publicação", boldFont));
                     table.AddCell(new Phrase("Assuntos", boldFont));
 
@@ -61,6 +62,7 @@ namespace CloudBooks.API.Core.Services
             table.AddCell(livro);
             table.AddCell(editora);
             table.AddCell(edicao.ToString());
+            table.AddCell(anoPublicacao);
             table.AddCell(assuntos);
         }
 
