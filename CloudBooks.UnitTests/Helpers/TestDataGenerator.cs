@@ -31,48 +31,19 @@ namespace CloudBooks.UnitTests.Helpers
         {
             return 99;
         }
-        //public static AddressViewModel CreateFakeAddressViewModel()
-        //{
-        //    return new AddressViewModel
-        //    {
-        //        Street = "fake street",
-        //        City = "fake city",
-        //        State = "fake state",
-        //        Country = "fake country",
-        //        ZipCode = "89040-115"
-        //    };
-        //}
 
-        //public static Address CreateFakeAddressModel()
-        //{
-        //    return new Address("fake street", "fake city", "fake state", "fake country", "89040-115");
-        //}
+        public static LivroViewModel CreateFakeLivroViewModel()
+        {
+            return new LivroViewModel(99, "Diario de Anne Frank", "Abril", 1, "1967", null, null);
+        }
+        public static Livro CreateFakeLivroModel()
+        {
+            return new Livro(99, "Diario de Anne Frank", "Abril", 1, "1967");  
+        }
 
-        //public static Store CreateFakeStoreModel()
-        //{
-        //    return new Store(1, "Any name", CreateFakeAddressModel(), "Any phone number");
-        //}
-        //public static Company CreateFakeCompanyModel()
-        //{
-        //    return new Company("Any compant", CreateFakeAddressModel());
-        //}
-
-        //public static int GetFakeCompanyId()
-        //{
-        //    return 7;
-        //}
-
-        //public static StoreViewModel CreateFakeStoreViewModel()
-        //{
-        //    return new StoreViewModel
-        //    {
-        //        Id = 1,
-        //        Name = "Fake Store",
-        //        PhoneNumber = "Fake Number",
-        //        Address = CreateFakeAddressViewModel(),
-        //    };
-        //}
-
-
+        public static int CreateFakeLivroId()
+        {
+            return 99;
+        }
     }
 }
