@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CloudBooks.API.Core.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Reflection.Emit;
@@ -19,6 +20,9 @@ public class ConnectionContext : DbContext
     public DbSet<Livro_Autor> Livro_Autores { get; set; }
     public DbSet<Livro_Assunto> Livro_Assuntos { get; set; }
     public DbSet<LivrosPorAutorViewModel> LivrosPorAutorView { get; set; }
+    public DbSet<Canal> Canais { get; set; }
+    public DbSet<Precificacao> Precificacoes { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -62,6 +66,22 @@ public class ConnectionContext : DbContext
             entity.HasNoKey();
             entity.ToView("LivrosPorAutorView");
         });
+
+        modelBuilder.Entity<Canal>()
+           .HasKey(c => c.CodCa);
+
+        modelBuilder.Entity<Precificacao>()
+            .HasKey(p => p.CodPr);
+
+        modelBuilder.Entity<Precificacao>()
+            .HasOne(p => p.CanalVenda)
+            .WithMany() 
+            .HasForeignKey(p => p.CodCa);
+
+        modelBuilder.Entity<Precificacao>()
+            .HasOne(p => p.Livro)
+            .WithMany()
+            .HasForeignKey(p => p.Codl);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
