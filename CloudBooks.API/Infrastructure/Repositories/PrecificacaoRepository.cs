@@ -20,7 +20,8 @@ namespace CloudBooks.API.Infrastructure.Repositories
         public async Task<List<Precificacao>> GetAllAsync()
         {
             return await _context.Precificacoes
-               .Include(l => l.CanalVenda)
+               .Include(p => p.CanalVenda)
+               .Include(p => p.Livro)
                .AsNoTracking()
                .ToListAsync();
         }

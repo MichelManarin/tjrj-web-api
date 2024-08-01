@@ -5,9 +5,11 @@ namespace CloudBooks.API.Presentation.ViewModel
     public class PrecificacaoViewModel
     {
         [Required(ErrorMessage = "O código do canal de venda é obrigatório.")]
+        [Range(1, int.MaxValue, ErrorMessage = "O código do canal deve ser um número inteiro positivo.")]
         public int CodCa { get; set; }
 
         [Required(ErrorMessage = "O código do livro é obrigatório.")]
+        [Range(1, int.MaxValue, ErrorMessage = "O código do livro deve ser um número inteiro positivo.")]
         public int Codl { get; set; }
 
         [Required(ErrorMessage = "O preço é obrigatório.")]
