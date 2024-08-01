@@ -58,4 +58,8 @@ void ConfigureServices(IServiceCollection services)
     services.AddTransient<IAssuntoService, AssuntoService>();
     services.AddTransient<ILivroService, LivroService>();
     services.AddTransient<IReportService, ReportService>();
+    services.AddTransient<ICanalRepository, CanalRepository>();
+    services.AddTransient<IPrecificacaoRepository, PrecificacaoRepository>();
+    services.AddTransient<ICanalService, CanalService>();
+    services.AddTransient<IPrecificacaoService, PrecificacaoService>();
 }
