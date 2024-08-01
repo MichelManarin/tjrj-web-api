@@ -17,9 +17,9 @@ namespace CloudBooks.API.Core.Services
             await _precificacaoRepository.AddAsync(precificacao);
         }
 
-        public async Task<List<Precificacao>> GetAllAsync()
+        public async Task<List<Precificacao>> GetAllAsync(int? codl)
         {
-            return await _precificacaoRepository.GetAllAsync();
+            return await _precificacaoRepository.GetAllAsync(codl);
         }
     }
 }

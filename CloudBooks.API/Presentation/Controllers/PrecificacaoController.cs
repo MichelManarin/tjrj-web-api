@@ -19,11 +19,11 @@ namespace CloudBooks.API.Presentation.Controllers
         }
 
         [HttpGet(Name = "GetPrecificacoes")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] int? codl)
         {
             try
             {
-                var precificacoes = await _precificacaoService.GetAllAsync();
+                var precificacoes = await _precificacaoService.GetAllAsync(codl);
                 return Ok(precificacoes);
             }
             catch (Exception ex)

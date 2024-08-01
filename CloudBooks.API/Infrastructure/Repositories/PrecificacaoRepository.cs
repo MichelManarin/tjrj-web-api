@@ -17,13 +17,19 @@ namespace CloudBooks.API.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Precificacao>> GetAllAsync()
+        public async Task<List<Precificacao>> GetAllAsync(int? codl)
         {
-            return await _context.Precificacoes
-               .Include(p => p.CanalVenda)
-               .Include(p => p.Livro)
-               .AsNoTracking()
-               .ToListAsync();
+            var query = _context.Precificacoes
+                .Include(p => p.CanalVenda)
+                .Include(p => p.Livro)
+                .AsNoTracking();
+
+            if (codl.HasValue)
+            {
+                query = query.Where(p => p.Livro.Codl == codl.Value);
+            }
+
+            return await query.ToListAsync();
         }
     }
 }
