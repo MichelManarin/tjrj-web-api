@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-#nullable disable
-
 namespace CloudBooks.API.Migrations
 {
     public partial class AdicionarValoresPadraoCanal : Migration
