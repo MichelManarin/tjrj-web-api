@@ -44,9 +44,10 @@ void ConfigureServices(IServiceCollection services)
         options.AddPolicy("AllowLocalhost",
             builder =>
             {
-                builder.WithOrigins("http://localhost:3000")
-                       .AllowAnyHeader()
-                       .AllowAnyMethod();
+                builder.WithOrigins("http://localhost:3000", 
+                                    "https://tjrj-react-production.up.railway.app")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
             });
     });
 
