@@ -14,6 +14,12 @@ No método ConfigureServices da classe Program.cs, configurei a injeção de dep
 
 Para geração de relatórios, utilizei o iTextSharp, que, embora não seja um gerador de relatórios específico, cumpre a função com eficiência e simplicidade.
 
+A respeito de customização de exception, acabei criando apenas uma que me atendeu em casos onde o repositorio ou serviço não encontra o registro a ser editado dessa forma no controller consigo mapear e retornar uma resposta mais adequada.
+
+É Importante mencionar que boa parte das validações de dados do request foram implementadas no DTO que no projeto acabei chamando de ViewModel apenas por vicio de nomenclatura.
+
+Sobre o preço, decidi criar uma tabela de precificação com data vinculado a outra tabela chamada de canal (representando canal de venda) pois entendo que o preço pode mudar conforme o tempo. A tabela de canal foi inserida com valores padrões via migration e via solução não tem como ser editada.
+
 # Unit Tests e TDD
 O projeto CloudBook.UnitTests referencia a API e realiza testes mockados nos controllers e serviços, garantindo a segurança para futuras implementações. Focalizei os testes nos controllers de assuntos, autores e livros, totalizando 27 testes unitários.
 
