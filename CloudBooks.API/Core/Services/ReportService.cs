@@ -29,21 +29,18 @@ namespace CloudBooks.API.Core.Services
 
                     document.Add(headerPhrase);
 
-                    var table = new PdfPTable(6); 
+                    var table = new PdfPTable(3); 
 
-                    float[] widths = new float[] { 2f, 2f, 2f, 2f, 2f, 2f };
+                    float[] widths = new float[] { 2f, 2f, 2f };
                     table.SetWidths(widths);
 
                     table.AddCell(new Phrase("Autor", boldFont));
-                    table.AddCell(new Phrase("Livro", boldFont));
-                    table.AddCell(new Phrase("Editora", boldFont));
-                    table.AddCell(new Phrase("Edição", boldFont));
-                    table.AddCell(new Phrase("Ano de publicação", boldFont));
+                    table.AddCell(new Phrase("Livros", boldFont));
                     table.AddCell(new Phrase("Assuntos", boldFont));
 
                     foreach (var linha in linhas)
                     {
-                        addRow(table, linha.Autor, linha.Livro, linha.Editora, linha.Edicao, linha.AnoPublicacao, linha.Assuntos);
+                        addRow(table, linha.Autor, linha.Livros, linha.Assuntos);
                     }
 
                     document.Add(table);
@@ -56,13 +53,10 @@ namespace CloudBooks.API.Core.Services
                 }
             }
         }
-        private void addRow(PdfPTable table, string autor, string livro, string editora, int edicao, string anoPublicacao, string assuntos)
+        private void addRow(PdfPTable table, string autor, string livros, string assuntos)
         {
             table.AddCell(autor);
-            table.AddCell(livro);
-            table.AddCell(editora);
-            table.AddCell(edicao.ToString());
-            table.AddCell(anoPublicacao);
+            table.AddCell(livros);
             table.AddCell(assuntos);
         }
 
